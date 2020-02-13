@@ -13,6 +13,8 @@ jobs:
       with:
         path: ~/.stack
         key: ${{ runner.os }}-stack-folder-${{ hashFiles('package.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-stack-folder-
     - uses: mstksg/setup-stack@v2
     - name: Install dependencies
       run: |
