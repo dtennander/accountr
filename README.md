@@ -1,4 +1,4 @@
-# acountr
+# accounter
 A small server API for handling accounting tasks and communication between Accountant and Treasurer.
 
 ## Language & Framework

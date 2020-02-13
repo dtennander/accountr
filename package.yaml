@@ -1,6 +1,6 @@
-name:                acountr
+name:                accounter
 version:             0.1.0.0
-github:              "dtennander/acountr"
+github:              "dtennander/accounter"
 author:              "David Tennander"
 maintainer:          "david.tennander@gmail.com"
 copyright:           "2020 David Tennander"
@@ -8,7 +8,7 @@ copyright:           "2020 David Tennander"
 extra-source-files:
 - README.md
 
-description: Please see the README on GitHub at <https://github.com/dtennander/acountr#readme>
+description: Please see the README on GitHub at <https://github.com/dtennander/accounter#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -22,7 +22,7 @@ library:
   source-dirs: src
 
 executables:
-  acountr-exe:
+  accounter-exe:
     main: Main.hs
     source-dirs: app
     ghc-options:
@@ -30,12 +30,12 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - acountr
+    - accounter
     - servant-server
     - warp
 
 tests:
-  acountr-test:
+  accounter-test:
     main: Spec.hs
     source-dirs: test
     ghc-options:
@@ -43,4 +43,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - acountr
+    - accounter
