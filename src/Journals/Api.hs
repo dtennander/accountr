@@ -9,11 +9,12 @@ import Data.Aeson.Types as T
 import Data.Aeson (FromJSON, ToJSON)
 import Data.Text (pack, unpack)
 import Control.Arrow (left)
-import Servant.API (FromHttpApiData(..), Capture, Get, JSON, (:>))
+import Servant.API (FromHttpApiData(..), Capture, Get, JSON, (:>), (:<|>))
 import Journals.Data
 import Control.Monad.Error.Parser
 
-type JournalApi = "journal" :> Capture "journalId" JournalId :> Get '[JSON] Journal
+type JournalApi = "journals" :> Get '[JSON] [Journal]
+             :<|> "journals" :> Capture "journalId" JournalId :> Get '[JSON] Journal
 
 instance ToJSON Journal
 

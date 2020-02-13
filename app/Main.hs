@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 module Main where
 
@@ -8,9 +9,19 @@ import Network.Wai.Handler.Warp (run)
 import Api
 import System.Environment (lookupEnv)
 import Data.Maybe (fromMaybe)
+import Control.Monad.List (forM)
+import Control.Monad.Except (withExceptT)
+import Data.ByteString.Lazy.UTF8 (fromString)
 
 server :: Server MainAPI
-server = getJournal
+server = getJournals 
+    :<|> getJournal
+
+getJournals :: Handler [Journal]
+getJournals = withServerErrors $ mapM journal [0 .. 10]
+  where
+    journal i = Journal <$> parseJournalId ('B' : 'C' : '-' : show i)
+    withServerErrors = Handler . withExceptT (\s -> err500 {errBody = fromString s})
 
 getJournal :: JournalId -> Handler Journal
 getJournal j = return (Journal j)
