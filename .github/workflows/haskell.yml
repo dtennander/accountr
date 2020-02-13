@@ -1,0 +1,23 @@
+name: Accounter
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: [ubuntu-latest]
+    steps:
+    - name: Haskell Linter
+      uses: domdere/haskell-lint-action@v1.0.2 
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: mstksg/setup-stack@v2
+    - name: Install dependencies
+      run: |
+        stack update
+        stack install --only-dependencies
+    - name: Build
+      run: stack build --fast
+    - name: Run tests
+      run: stack test
