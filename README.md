@@ -1,7 +1,9 @@
 # acountr
 A small server API for handling accounting tasks and communication between Accountant and Treasurer.
 
-## Framework
-The solution is built on [`servant`][1].
+## Language & Framework
+THe language Haskell is picked not because it was the best suited one but because it pleased the author. 
+
+The API is built on [`servant`][1].
 
 [1]: https://www.servant.dev
