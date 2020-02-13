@@ -1,0 +1,46 @@
+name:                acountr
+version:             0.1.0.0
+github:              "dtennander/acountr"
+author:              "David Tennander"
+maintainer:          "david.tennander@gmail.com"
+copyright:           "2020 David Tennander"
+
+extra-source-files:
+- README.md
+
+description: Please see the README on GitHub at <https://github.com/dtennander/acountr#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - aeson
+  - servant
+  - mtl
+  - utf8-string
+  - text
+
+library:
+  source-dirs: src
+
+executables:
+  acountr-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - acountr
+    - servant-server
+    - warp
+
+tests:
+  acountr-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - acountr
