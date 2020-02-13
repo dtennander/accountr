@@ -1,4 +1,6 @@
 # accounter
+![Accounter](https://github.com/dtennander/accountr/workflows/Accounter/badge.svg?branch=master)
+
 A small server API for handling accounting tasks and communication between Accountant and Treasurer.
 
 ## Language & Framework
