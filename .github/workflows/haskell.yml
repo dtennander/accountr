@@ -3,13 +3,6 @@ name: Accountr
 on: [push]
 
 jobs:
-  lint:
-    runs-on: [ubuntu-latest]
-    steps:
-    - name: Haskell Linter
-      uses: domdere/haskell-lint-action@v1.0.2 
-      with:
-        secrets: GITHUB_TOKEN
   build-and-test:
     runs-on: ubuntu-latest
     steps:
