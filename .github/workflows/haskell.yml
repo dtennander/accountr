@@ -14,6 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Cache Primes
+      id: cache-stack
+      uses: actions/cache@v1
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-stack-folder-${{ hashFiles('package.yaml') }}
     - uses: mstksg/setup-stack@v2
     - name: Install dependencies
       run: |
